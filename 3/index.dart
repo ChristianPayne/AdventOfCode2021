@@ -5,8 +5,9 @@ void main(List<String> args) {
   List<String> data =
       LineSplitter().convert(new File('./input.txt').readAsStringSync());
 
-  // Challenge1(data);
-  Challenge2(data);
+  Challenge1(List.from(data));
+  print("-----------------------------");
+  Challenge2(List.from(data));
 }
 
 CountData FindCountOfIndex(int index, List data) {
@@ -20,7 +21,6 @@ CountData FindCountOfIndex(int index, List data) {
       one++;
     }
   }
-  // print("Zero: $zero One: $one");
   return new CountData()
     ..mostCommon = "${zero > one ? "0" : "1"}"
     ..ones = one
@@ -63,7 +63,6 @@ void Challenge2(data) {
   }
 
   int CheckListLength(List list) {
-    // print("List length: ${list.length}");
     return list.length;
   }
 
@@ -111,11 +110,11 @@ void Challenge2(data) {
   var oxygenGenRatingNumber = int.parse(oxygenGenRatingBinary, radix: 2);
   var cO2ScrRatingNumber = int.parse(cO2ScrRatingBinary, radix: 2);
 
-  print("oxygenGenRatingBinary: $oxygenGenRatingBinary");
-  print("CO2ScrRatingBinary: $cO2ScrRatingBinary");
+  print("Oxygen Generator Rating Binary: $oxygenGenRatingBinary");
+  print("CO2 Scrubber Rating Binary: $cO2ScrRatingBinary");
 
-  print("oxygenGenRatingNumber: $oxygenGenRatingNumber");
-  print("CO2ScrRatingNumber: $cO2ScrRatingNumber");
+  print("Oxygen Generator Rating Number: $oxygenGenRatingNumber");
+  print("CO2 Scrubber Rating Number: $cO2ScrRatingNumber");
 
   print(
       "Final number for calculation is ${oxygenGenRatingNumber * cO2ScrRatingNumber}");
