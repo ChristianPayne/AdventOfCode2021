@@ -6,3 +6,4 @@ https://adventofcode.com/2021
 - [Day 1:](/1) JavaScript
 - [Day 2:](/2) Jupyter Notebook (Python)
 - [Day 3:](/3) Dart
+- [Day 4:](/4) Python
