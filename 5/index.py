@@ -1,20 +1,25 @@
 import csv
 from typing import List
 
+# Generate grid
+grid_size = 1000
+grid = [[0 for _ in range(grid_size)] for _ in range(grid_size)]
 
+# Parse Data
 data = []
-grid = [[0 for _ in range(1000)] for _ in range(1000)]
 with open('./input.txt') as csv_data:
   # Pull in raw data as strings and organize into rows, getting rid of arrows.
   raw_data = [[row[0].split(','), row[2].split(',')] for row in csv.reader(csv_data, delimiter=" ")]
   # Int cast every point for every line for every row.
   data = [[[int(point) for point in line] for line in row] for row in raw_data]
 
+# Debug method to show grid in console.
 def print_grid ():
   get_grid_rows = (y for y in grid)
   for _ in range(len(grid)):
     print(next(get_grid_rows))
 
+# Function to increment grid position
 def add_to_point (x ,y):
   grid[y][x] += 1
 
@@ -36,9 +41,11 @@ def make_line (line_points: List[List[int]]):
     print(f"Diagonal Line: {line_points}")
     # Calculate the points individually.
     x_points = [x for x in range(xVal1 , xVal2 + 1)]
+    # Reverse the direction back if we reversed already.
     if x1 > x2:
       x_points.reverse()
     y_points = [y for y in range(yVal1 , yVal2 + 1)]
+    # Reverse the direction back if we reversed already.
     if y1 > y2:
       y_points.reverse()
 
@@ -65,4 +72,5 @@ for line in data:
 # Sum all the points that 2 or more lines overlap.
 print(f"Final sum of two or more lines: {sum([len([val for val in row if val >= 2]) for row in grid if any(val >= 2 for val in row)])}")
 
+# Used for visualizing grid.
 # print_grid()
