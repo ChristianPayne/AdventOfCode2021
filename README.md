@@ -9,3 +9,4 @@ https://adventofcode.com/2021
 - [Day 4:](/4) Python
 - [Day 5:](/5) Python
 - [Day 6:](/6) Python
+- [Day 7:](/7) Python
